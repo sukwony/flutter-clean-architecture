@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/app_colors.dart';
+
+import 'app_colors.dart';
 
 void main() => runApp(const TabScaffoldApp());
 
