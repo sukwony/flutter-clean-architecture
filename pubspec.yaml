@@ -88,3 +88,18 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: fonts/montserrat_medium.ttf
+        - asset: fonts/montserrat_bold.ttf
+    - family: NotoSansKR
+      fonts:
+        - asset: fonts/notosanskr_light.otf
+        - asset: fonts/notosanskr_regular.otf
+        - asset: fonts/notosanskr_medium.otf
+        - asset: fonts/notosanskr_bold.otf
+        - asset: fonts/notosanskr_black.otf
+    - family: Ydestreet
+      fonts:
+        - asset: fonts/ydestreet_bold.otf
