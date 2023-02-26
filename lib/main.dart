@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
+import 'share.dart';
 
 void main() => runApp(const TabScaffoldApp());
+void share() => runApp(const ShareApp());
 
 class TabScaffoldApp extends StatelessWidget {
   const TabScaffoldApp({super.key});
