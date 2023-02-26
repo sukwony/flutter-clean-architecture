@@ -46,13 +46,7 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
               ),
               child: Center(
                 child: CupertinoButton(
-                  child: const Text(
-                    'Next page',
-                    style: TextStyle(
-                      fontFamily: 'NotoSansKR',
-                      fontWeight: FontWeight.w200
-                    )
-                    ),
+                  child: const Text('Next page'),
                   onPressed: () {
                     Navigator.of(context).push(
                       CupertinoPageRoute<void>(
