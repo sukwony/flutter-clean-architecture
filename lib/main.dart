@@ -1,4 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import 'app_colors.dart';
 
 void main() => runApp(const TabScaffoldApp());
 
@@ -7,9 +10,14 @@ class TabScaffoldApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CupertinoApp(
-      theme: CupertinoThemeData(brightness: Brightness.light),
-      home: TabScaffoldExample(),
+    return MaterialApp(
+      theme: ThemeData(
+        extensions: <ThemeExtension<dynamic>>[lightColors]
+      ),
+      darkTheme: ThemeData(
+        extensions: <ThemeExtension<dynamic>>[darkColors]
+      ),
+      home: const TabScaffoldExample(),
     );
   }
 }
@@ -40,13 +48,19 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
       tabBuilder: (BuildContext context, int index) {
         return CupertinoTabView(
           builder: (BuildContext context) {
+            final appColors = Theme.of(context).extension<AppColors>()!;
+
             return CupertinoPageScaffold(
+              backgroundColor: appColors.backgroundWhite,
               navigationBar: CupertinoNavigationBar(
                 middle: Text('Page 1 of tab $index'),
               ),
               child: Center(
                 child: CupertinoButton(
-                  child: const Text('Next page'),
+                  child: Text(
+                    'Next page',
+                    style: TextStyle(color: appColors.textBlackOnWhite)
+                  ),
                   onPressed: () {
                     Navigator.of(context).push(
                       CupertinoPageRoute<void>(
