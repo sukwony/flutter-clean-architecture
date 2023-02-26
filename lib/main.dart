@@ -1,18 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
-final _router = GoRouter(
-  routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => const MyHomePage(title: 'Flutter Demo Home Page')
-    )
-  ]
-);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -20,7 +10,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -34,7 +24,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      routerConfig: _router,
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
