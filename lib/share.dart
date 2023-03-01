@@ -5,12 +5,18 @@ class ShareApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    // return MaterialApp(
+    //   title: 'Flutter Demo',
+    //   theme: ThemeData(
+    //     primarySwatch: Colors.blue,
+    //   ),
+    //   home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    // );
+    return Container(
+      color: Colors.green.withAlpha(50),
+      child: Center(
+        child: Container(width: 100, height: 100, color: Colors.red)
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
