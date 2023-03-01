@@ -11,14 +11,14 @@ class Screen with _$Screen {
   const factory Screen.user() = User;
   const factory Screen.unknown() = Unknown;
 
-  static const explore_ = Screen.explore();
-  static const user_ = Screen.user();
-  static const unknown_ = Screen.unknown();
+  static const _explore = Screen.explore();
+  static const _user = Screen.user();
+  static const _unknown = Screen.unknown();
 
   static Screen fromPath(String path) {
-    if (path.startsWith('explore')) return explore_;
-    if (path.startsWith('users')) return user_;
-    return unknown_;
+    if (path.startsWith('explore')) return _explore;
+    if (path.startsWith('users')) return _user;
+    return _unknown;
   }
 
   Map<String, dynamic> parsePath(String path) {
