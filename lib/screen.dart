@@ -17,7 +17,7 @@ class Screen with _$Screen {
 
   static Screen fromPath(String path) {
     if (path.startsWith('explore')) return _explore;
-    if (path.startsWith('users')) return _user;
+    if (path.startsWith('users/')) return _user;
     return _unknown;
   }
 
