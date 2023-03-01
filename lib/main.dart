@@ -93,33 +93,3 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
     );
   }
 }
-
-class TestScreen extends StatelessWidget {
-  final String screenName;
-
-  const TestScreen({
-    super.key,
-    required this.screenName
-  });
-
-
-  @override
-  Widget build(BuildContext context) {
-    final appColors = Theme.of(context).extension<AppColors>()!;
-
-    return Container(
-      color: appColors.backgroundWhite,
-      child: Center(
-        child: Text(
-          screenName,
-          style: TextStyle(color: appColors.textBlackOnWhite)
-        ),
-      ),
-    );
-  }
-}
-
-
-var aaa = {
-  'asdf': () => const TestScreen(screenName: 'asdf')
-};
