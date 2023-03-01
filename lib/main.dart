@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
+import 'screen.dart';
 import 'share.dart';
 
 void main() => runApp(const TabScaffoldApp());
@@ -50,46 +51,93 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
       tabBuilder: (BuildContext context, int index) {
         return CupertinoTabView(
           builder: (BuildContext context) {
-            final appColors = Theme.of(context).extension<AppColors>()!;
-
             return CupertinoPageScaffold(
-              backgroundColor: appColors.backgroundWhite,
-              navigationBar: CupertinoNavigationBar(
-                middle: Text('Page 1 of tab $index'),
-              ),
-              child: Center(
-                child: CupertinoButton(
-                  child: Text(
-                    'Next page',
-                    style: TextStyle(color: appColors.textBlackOnWhite)
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      CupertinoPageRoute<void>(
-                        builder: (BuildContext context) {
-                          return CupertinoPageScaffold(
-                            navigationBar: CupertinoNavigationBar(
-                              middle: Text('Page 2 of tab $index'),
-                            ),
-                            child: Center(
-                              child: CupertinoButton(
-                                child: const Text('Back'),
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    );
-                  },
-                ),
+              child: index == 0 ? TestScreen(
+                screenName: 'Home',
+                child: TextButton(
+                  child: const Text('Press me'),
+                  onPressed: () => navigate(context, 'users/2'),
+                )
+              )
+              : TestScreen(
+                screenName: 'Explore root',
+                child: TextButton(
+                  child: const Text('Press me'),
+                  onPressed: () => navigate(context, 'explore?asdf'),
+                )
               ),
             );
           },
         );
       },
+    );
+  }
+}
+
+void navigate(BuildContext context, String path) {
+  final screen = Screen.fromPath(path);
+  var arguments = screen.parsePath(path);
+
+  Navigator.of(context).push(
+    CupertinoPageRoute<void>(
+      builder: (BuildContext context) {
+        return CupertinoPageScaffold(
+          child: buildScreen(context, screen, arguments),
+        );
+      }
+    )
+  );
+}
+
+Widget buildScreen(BuildContext context, Screen screen, Object arguments) => screen.when(
+  explore: () => TestScreen(
+    screenName: screen.getName(arguments),
+    child: TextButton(
+      child: const Text('Press me'),
+      onPressed: () => navigate(context, 'users/1'),
+    )
+  ),
+  user: () => TestScreen(
+    screenName: screen.getName(arguments),
+    child: TextButton(
+      child: const Text('Press me'),
+      onPressed: () => navigate(context, 'explore'),
+    )
+  ),
+  unknown: () => TestScreen(
+    screenName: 'Unknown Screen',
+    child: Container()
+  )
+);
+
+class TestScreen extends StatelessWidget {
+  final String screenName;
+  final Widget child;
+
+  const TestScreen({
+    super.key,
+    required this.screenName,
+    required this.child
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final appColors = Theme.of(context).extension<AppColors>()!;
+
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            screenName,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              color: appColors.textBlackOnWhite
+            )
+          ),
+          child
+        ]
+      ),
     );
   }
 }
