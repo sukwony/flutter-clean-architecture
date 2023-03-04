@@ -62,7 +62,7 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
             navigatorKey: _tabNavKeys[index],
             builder: (BuildContext context) {
               return CupertinoPageScaffold(
-                child: buildRootScreen(context, index),
+                child: buildStartScreen(context, index),
               );
             },
           );
@@ -87,7 +87,7 @@ void navigate(BuildContext context, String path) {
   );
 }
 
-Widget buildRootScreen(BuildContext context, int index) =>
+Widget buildStartScreen(BuildContext context, int index) =>
   index == 0 ? TestScreen(
     screenName: 'Home',
     child: TextButton(
