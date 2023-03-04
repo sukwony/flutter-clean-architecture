@@ -62,20 +62,7 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
             navigatorKey: _tabNavKeys[index],
             builder: (BuildContext context) {
               return CupertinoPageScaffold(
-                child: index == 0 ? TestScreen(
-                  screenName: 'Home',
-                  child: TextButton(
-                    child: const Text('Press me'),
-                    onPressed: () => navigate(context, 'users/2'),
-                  )
-                )
-                : TestScreen(
-                  screenName: 'Explore root',
-                  child: TextButton(
-                    child: const Text('Press me'),
-                    onPressed: () => navigate(context, 'explore?asdf'),
-                  )
-                ),
+                child: buildStartScreen(context, index),
               );
             },
           );
@@ -99,6 +86,21 @@ void navigate(BuildContext context, String path) {
     )
   );
 }
+
+Widget buildStartScreen(BuildContext context, int index) =>
+  index == 0 ? TestScreen(
+    screenName: 'Home',
+    child: TextButton(
+      child: const Text('Press me'),
+      onPressed: () => navigate(context, 'users/2'),
+    )
+  ) : TestScreen(
+    screenName: 'Explore root',
+    child: TextButton(
+      child: const Text('Press me'),
+      onPressed: () => navigate(context, 'explore?asdf'),
+    )
+  );
 
 Widget buildScreen(BuildContext context, Screen screen, Object arguments) => screen.when(
   explore: () => TestScreen(
