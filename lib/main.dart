@@ -33,43 +33,54 @@ class TabScaffoldExample extends StatefulWidget {
 }
 
 class _TabScaffoldExampleState extends State<TabScaffoldExample> {
+  final _tabNavKeys = <GlobalKey<NavigatorState>>[
+    GlobalKey(),
+    GlobalKey(),
+  ];
+  final _tabController = CupertinoTabController(initialIndex: 0);
+
   @override
   Widget build(BuildContext context) {
-    return CupertinoTabScaffold(
-      tabBar: CupertinoTabBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.search_circle_fill),
-            label: 'Explore',
-          ),
-        ],
+    return WillPopScope(
+      onWillPop: () async => !(await _tabNavKeys[_tabController.index].currentState?.maybePop() ?? false),
+      child: CupertinoTabScaffold(
+        controller: _tabController,
+        tabBar: CupertinoTabBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.search_circle_fill),
+              label: 'Explore',
+            ),
+          ],
+        ),
+        tabBuilder: (BuildContext context, int index) {
+          return CupertinoTabView(
+            navigatorKey: _tabNavKeys[index],
+            builder: (BuildContext context) {
+              return CupertinoPageScaffold(
+                child: index == 0 ? TestScreen(
+                  screenName: 'Home',
+                  child: TextButton(
+                    child: const Text('Press me'),
+                    onPressed: () => navigate(context, 'users/2'),
+                  )
+                )
+                : TestScreen(
+                  screenName: 'Explore root',
+                  child: TextButton(
+                    child: const Text('Press me'),
+                    onPressed: () => navigate(context, 'explore?asdf'),
+                  )
+                ),
+              );
+            },
+          );
+        },
       ),
-      tabBuilder: (BuildContext context, int index) {
-        return CupertinoTabView(
-          builder: (BuildContext context) {
-            return CupertinoPageScaffold(
-              child: index == 0 ? TestScreen(
-                screenName: 'Home',
-                child: TextButton(
-                  child: const Text('Press me'),
-                  onPressed: () => navigate(context, 'users/2'),
-                )
-              )
-              : TestScreen(
-                screenName: 'Explore root',
-                child: TextButton(
-                  child: const Text('Press me'),
-                  onPressed: () => navigate(context, 'explore?asdf'),
-                )
-              ),
-            );
-          },
-        );
-      },
     );
   }
 }
