@@ -102,7 +102,7 @@ Widget buildStartScreen(BuildContext context, int index) =>
     )
   );
 
-Widget buildScreen(BuildContext context, Screen screen, Object arguments) => screen.when(
+Widget buildScreen(BuildContext context, Screen screen, Map<String, dynamic> arguments) => screen.when(
   explore: () => TestScreen(
     screenName: screen.getName(arguments),
     child: TextButton(

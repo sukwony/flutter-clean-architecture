@@ -41,11 +41,10 @@ class Screen with _$Screen {
     );
   }
 
-  String getName(Object? arguments) {
-    final args = arguments as Map<String, dynamic>;
+  String getName(Map<String, dynamic> arguments) {
     return when(
       explore: () => 'explore',
-      user: () => 'users/${args['userId']}',
+      user: () => 'users/${arguments['userId']}',
       unknown: () => 'unknown'
     );
   }
