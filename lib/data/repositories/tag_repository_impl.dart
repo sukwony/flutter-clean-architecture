@@ -10,7 +10,7 @@ class TagRepositoryImpl extends TagRepository {
   }) {
     return Future.value(
       const Result.data(
-          Page(
+        Page(
           cursor: '',
           hasNextPage: false,
           items: [Item(), Item()]
