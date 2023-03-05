@@ -1,11 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app_colors.dart';
+import 'data/repositories/tag_repository_impl.dart';
 import 'screen.dart';
 import 'share.dart';
 
-void main() => runApp(const TabScaffoldApp());
+import 'usecases/tag/repository.dart';
+import 'usecases/tag/usecases.dart';
+
+void main() => runApp(
+  ProviderScope(
+    overrides: [
+      tagRepositoryProvider.overrideWithValue(TagRepositoryImpl())
+    ],
+    child: const TabScaffoldApp()
+  )
+);
 void share() => runApp(const ShareApp());
 
 class TabScaffoldApp extends StatelessWidget {
@@ -123,7 +135,7 @@ Widget buildScreen(BuildContext context, Screen screen, Map<String, dynamic> arg
   )
 );
 
-class TestScreen extends StatelessWidget {
+class TestScreen extends ConsumerWidget {
   final String screenName;
   final Widget child;
 
@@ -134,8 +146,10 @@ class TestScreen extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final appColors = Theme.of(context).extension<AppColors>()!;
+
+    final test = ref.watch(getItemPageForTagProvider(tagId: '1', after: ''));
 
     return Center(
       child: Column(
