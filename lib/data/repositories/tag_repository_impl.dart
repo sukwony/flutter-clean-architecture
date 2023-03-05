@@ -5,7 +5,9 @@ import '../../usecases/tag/repository.dart';
 
 class TagRepositoryImpl extends TagRepository {
   @override
-  Future<Result<Page<Item>>> getItemPageForTag({required String tagId, required String after, int first = 60}) {
+  Future<Result<Page<Item>>> getItemPageForTag({
+    required String tagId, required String after, int first = 60
+  }) {
     return Future.value(
       const Result.data(
           Page(
