@@ -9,5 +9,5 @@ import 'repository.dart';
 Future<Result<Page<Item>>> getItemPageForTag(TagRepository tagRepository, {
   required String tagId, required String after, int first = 60
 }) {
-  return tagRepository.getItemPageForTag(tagId: tagId, after: after);
+  return tagRepository.getItemPageForTag(tagId: tagId, after: after, first: first);
 }
