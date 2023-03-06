@@ -4,29 +4,29 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../usecases/core/entities/item.dart';
 import '../../usecases/tag/usecases.dart';
 
-part 'tag_view_model.freezed.dart';
-part 'tag_view_model.g.dart';
+part 'tag_screen_view_model.freezed.dart';
+part 'tag_screen_view_model.g.dart';
 
 @freezed
-class TagState with _$TagState {
-  const factory TagState({
+class TagScreenState with _$TagScreenState {
+  const factory TagScreenState({
     @Default([]) List<Item> items
-  }) = _TagState;
+  }) = _TagScreenState;
 }
 
 @riverpod
-class TagViewModel extends _$TagViewModel {
+class TagScreenViewModel extends _$TagScreenViewModel {
   @override
-  FutureOr<TagState> build(String incarnationId) async {
+  FutureOr<TagScreenState> build(String incarnationId) async {
       final page = await ref.watch(getItemPageForTagProvider(tagId: '1', after: '').future);
-      return TagState(items: page.items as List<Item>);
+      return TagScreenState(items: page.items as List<Item>);
   }
 
   Future<void> doSomething() async {
     state = const AsyncValue.loading();
     try {
       final page = await ref.watch(getItemPageForTagProvider(tagId: '1', after: '').future);
-      state = AsyncValue.data(TagState(items: page.items as List<Item>));
+      state = AsyncValue.data(TagScreenState(items: page.items as List<Item>));
     } catch (e, stack) {
       state = AsyncValue.error(e, stack);
     }
