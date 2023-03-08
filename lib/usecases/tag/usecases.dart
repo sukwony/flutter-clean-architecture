@@ -7,11 +7,11 @@ import 'repository.dart';
 part 'usecases.g.dart';
 
 @riverpod
-Future<Page<Item>> getItemPageForTag(GetItemPageForTagRef ref, {
+Future<Page<Item>> getItemPageByTagId(GetItemPageByTagIdRef ref, {
   required String tagId,
   required String after,
   int first = 60
 }) {
   final tagRepository = ref.watch(tagRepositoryProvider);
-  return tagRepository.getItemPageForTag(tagId: tagId, after: after, first: first);
+  return tagRepository.getItemPageByTagId(tagId: tagId, after: after, first: first);
 }
