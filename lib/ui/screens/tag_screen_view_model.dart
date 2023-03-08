@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../screen_key.dart';
 import '../../usecases/core/entities/item.dart';
 import '../../usecases/tag/usecases.dart';
 
@@ -17,7 +18,7 @@ class TagScreenState with _$TagScreenState {
 @riverpod
 class TagScreenViewModel extends _$TagScreenViewModel {
   @override
-  FutureOr<TagScreenState> build(String incarnationId) async {
+  FutureOr<TagScreenState> build(double key) async {
       final page = await ref.watch(getItemPageForTagProvider(tagId: '1', after: '').future);
       return TagScreenState(items: page.items as List<Item>);
   }
@@ -31,4 +32,10 @@ class TagScreenViewModel extends _$TagScreenViewModel {
       state = AsyncValue.error(e, stack);
     }
   }
+}
+
+@Riverpod(dependencies: [screenKey])
+AsyncValue<TagScreenState> tagScreenState(TagScreenStateRef ref) {
+  final screenKey = ref.watch(screenKeyProvider);
+  return ref.watch(tagScreenViewModelProvider(screenKey));
 }

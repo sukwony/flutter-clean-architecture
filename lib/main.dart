@@ -4,11 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app_colors.dart';
 import 'data/repositories/tag_repository_impl.dart';
+import 'screen_key.dart';
 import 'screen.dart';
 import 'share.dart';
 
 import 'usecases/tag/repository.dart';
-import 'usecases/tag/usecases.dart';
 
 void main() => runApp(
   ProviderScope(
@@ -92,7 +92,10 @@ void navigate(BuildContext context, String path) {
     CupertinoPageRoute<void>(
       builder: (BuildContext context) {
         return CupertinoPageScaffold(
-          child: buildScreen(context, screen, arguments),
+          child: ProviderScope(
+            overrides: [screenKeyProvider],
+            child: buildScreen(context, screen, arguments)
+          ),
         );
       }
     )
@@ -148,8 +151,6 @@ class TestScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appColors = Theme.of(context).extension<AppColors>()!;
-
-    final test = ref.watch(getItemPageForTagProvider(tagId: '1', after: ''));
 
     return Center(
       child: Column(
