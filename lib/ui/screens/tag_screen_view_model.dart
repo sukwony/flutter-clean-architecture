@@ -19,14 +19,14 @@ class TagScreenState with _$TagScreenState {
 class TagScreenViewModel extends _$TagScreenViewModel {
   @override
   FutureOr<TagScreenState> build(double key) async {
-      final page = await ref.watch(getItemPageForTagProvider(tagId: '1', after: '').future);
+      final page = await ref.watch(getItemPageByTagIdProvider(tagId: '1', after: '').future);
       return TagScreenState(items: page.items as List<Item>);
   }
 
   Future<void> doSomething() async {
     state = const AsyncValue.loading();
     try {
-      final page = await ref.watch(getItemPageForTagProvider(tagId: '1', after: '').future);
+      final page = await ref.watch(getItemPageByTagIdProvider(tagId: '1', after: '').future);
       state = AsyncValue.data(TagScreenState(items: page.items as List<Item>));
     } catch (e, stack) {
       state = AsyncValue.error(e, stack);
