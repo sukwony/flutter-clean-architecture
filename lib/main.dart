@@ -8,6 +8,7 @@ import 'screen_key.dart';
 import 'screen.dart';
 import 'share.dart';
 
+import 'ui/screens/tag_screen.dart';
 import 'usecases/tag/repository.dart';
 
 void main() => runApp(
@@ -123,6 +124,13 @@ Widget buildScreen(BuildContext context, Screen screen, Map<String, dynamic> arg
     child: TextButton(
       child: const Text('Press me'),
       onPressed: () => navigate(context, 'users/1'),
+    )
+  ),
+  tag: () => TagScreen(
+    screenName: screen.getName(arguments),
+    child: TextButton(
+      child: const Text('Press me'),
+      onPressed: () => navigate(context, 'explore'),
     )
   ),
   user: () => TestScreen(
