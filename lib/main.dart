@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'app_colors.dart';
+import 'ui/app_colors.dart';
 import 'data/repositories/tag_repository_impl.dart';
 import 'screen_key.dart';
 import 'screen.dart';
