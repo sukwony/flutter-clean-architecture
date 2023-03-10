@@ -14,21 +14,25 @@ const _lightPurple = Color(0xff956fff);
 class AppColors extends ThemeExtension<AppColors> {
   final Color backgroundWhite;
   final Color textBlackOnWhite;
+  final Color backgroundLightGreyOnWhite;
 
   AppColors({
     this.backgroundWhite = Colors.white,
-    this.textBlackOnWhite = _black
+    this.textBlackOnWhite = _black,
+    this.backgroundLightGreyOnWhite = _lightGrey,
   });
 
 
   @override
   ThemeExtension<AppColors> copyWith({
     Color? backgroundWhite,
-    Color? textBlackOnWhite
+    Color? textBlackOnWhite,
+    Color? backgroundLightGreyOnWhite
   }) {
     return AppColors(
       backgroundWhite: backgroundWhite ?? this.backgroundWhite,
-      textBlackOnWhite: textBlackOnWhite ?? this.textBlackOnWhite
+      textBlackOnWhite: textBlackOnWhite ?? this.textBlackOnWhite,
+      backgroundLightGreyOnWhite: backgroundLightGreyOnWhite ?? this.backgroundLightGreyOnWhite
     );
   }
 
@@ -40,6 +44,7 @@ class AppColors extends ThemeExtension<AppColors> {
     return AppColors(
       backgroundWhite: Color.lerp(backgroundWhite, other.backgroundWhite, t) ?? backgroundWhite,
       textBlackOnWhite: Color.lerp(textBlackOnWhite, other.textBlackOnWhite, t) ?? textBlackOnWhite,
+      backgroundLightGreyOnWhite: Color.lerp(backgroundLightGreyOnWhite, other.backgroundLightGreyOnWhite, t) ?? backgroundLightGreyOnWhite,
     );
   }
 }
@@ -47,5 +52,6 @@ class AppColors extends ThemeExtension<AppColors> {
 final lightColors = AppColors();
 final darkColors = AppColors(
   backgroundWhite: _greyTwo,
-  textBlackOnWhite: Colors.white
+  textBlackOnWhite: Colors.white,
+  backgroundLightGreyOnWhite: _grey,
 );
