@@ -11,7 +11,11 @@ class TagRepositoryImpl extends TagRepository {
       const Page(
         cursor: '',
         hasNextPage: false,
-        items: [Item(), Item()]
+        items: [Item(
+          name: '피쉬테일 숏파카',
+          imageUrl: 'https://picsum.photos/301',
+          price: 11290000
+        )]
       )
     );
   }

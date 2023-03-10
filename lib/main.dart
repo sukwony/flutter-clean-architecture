@@ -126,13 +126,7 @@ Widget buildScreen(BuildContext context, Screen screen, Map<String, dynamic> arg
       onPressed: () => navigate(context, 'users/1'),
     )
   ),
-  tag: () => TagScreen(
-    screenName: screen.getName(arguments),
-    child: TextButton(
-      child: const Text('Press me'),
-      onPressed: () => navigate(context, 'explore'),
-    )
-  ),
+  tag: () => const TagScreen(),
   user: () => TestScreen(
     screenName: screen.getName(arguments),
     child: TextButton(
