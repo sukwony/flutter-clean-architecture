@@ -15,16 +15,16 @@ class ItemTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).extension<AppColors>()!;
 
-    return AspectRatio(
-      aspectRatio: 1,
-      child: RoundedContainer(
-        radius: 20,
-        borderWidth: 1,
-        borderColor: appColors.backgroundLightGreyOnWhite,
+    return RoundedContainer(
+      radius: 20,
+      borderWidth: 1,
+      borderColor: appColors.backgroundLightGreyOnWhite,
+      child: AspectRatio(
+        aspectRatio: 1,
         child: Image.network(imageUrl, 
           fit: BoxFit.cover
-        )
-      ),
+        ),
+      )
     );
   }
 }
