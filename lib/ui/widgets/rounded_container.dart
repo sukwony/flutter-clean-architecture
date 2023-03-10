@@ -27,6 +27,7 @@ class RoundedContainer extends StatelessWidget {
           width: borderWidth,
           color: borderColor
         ),
+        borderRadius: borderRadius
       ),
       child: child
     ) : child;
