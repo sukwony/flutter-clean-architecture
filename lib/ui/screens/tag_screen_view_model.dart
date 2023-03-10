@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../screen_key.dart';
+import '../screen_key.dart';
 import '../../usecases/core/entities/item.dart';
 import '../../usecases/tag/usecases.dart';
 

@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'ui/app_colors.dart';
 import 'data/repositories/tag_repository_impl.dart';
-import 'screen_key.dart';
+import 'ui/screen_key.dart';
 import 'screen.dart';
 import 'share.dart';
 
