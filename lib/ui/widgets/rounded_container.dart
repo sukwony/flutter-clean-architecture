@@ -17,19 +17,18 @@ class RoundedContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final borderRadius = BorderRadius.circular(radius);
-
-    return ClipRRect(
+    final child = ClipRRect(
       borderRadius: borderRadius,
-      child: borderWidth > 0 ? Container(
-        decoration: BoxDecoration(
-          borderRadius: borderRadius,
-          border: Border.all(
-            width: borderWidth,
-            color: borderColor
-          )
-        ),
-        child: child
-      ) : child,
+      child: this.child
     );
+    return borderWidth > 0 ? Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+          width: borderWidth,
+          color: borderColor
+        ),
+      ),
+      child: child
+    ) : child;
   }
 }
