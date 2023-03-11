@@ -72,11 +72,11 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
           ],
         ),
         tabBuilder: (BuildContext context, int index) {
-          final appColors = Theme.of(context).extension<AppColors>()!;
-
           return CupertinoTabView(
             navigatorKey: _tabNavKeys[index],
             builder: (BuildContext context) {
+              final appColors = Theme.of(context).extension<AppColors>()!;
+
               return CupertinoPageScaffold(
                 backgroundColor: appColors.backgroundBlack,
                 child: DefaultTextStyle(
