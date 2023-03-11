@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/ui/widgets/rounded_container.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../app_colors.dart';
 import '../app_text_styles.dart';
 import '../widgets/item_tile.dart';
+import '../widgets/rounded_container.dart';
 import 'tag_screen_view_model.dart';
 
 class TagScreen extends ConsumerWidget {
