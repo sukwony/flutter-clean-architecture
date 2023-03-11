@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'ui/app_colors.dart';
 import 'data/repositories/tag_repository_impl.dart';
+import 'ui/app_text_styles.dart';
 import 'ui/screen_key.dart';
 import 'screen.dart';
 import 'share.dart';
@@ -28,10 +29,14 @@ class TabScaffoldApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        extensions: <ThemeExtension<dynamic>>[lightColors]
+        fontFamily: 'Montserrat',
+        fontFamilyFallback: const ['NotoSansKR'],
+        extensions: <ThemeExtension<dynamic>>[lightColors, textStyles]
       ),
       darkTheme: ThemeData(
-        extensions: <ThemeExtension<dynamic>>[darkColors]
+        fontFamily: 'Montserrat',
+        fontFamilyFallback: const ['NotoSansKR'],
+        extensions: <ThemeExtension<dynamic>>[darkColors, textStyles]
       ),
       home: const TabScaffoldExample(),
     );
