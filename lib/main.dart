@@ -55,8 +55,6 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
 
   @override
   Widget build(BuildContext context) {
-    final appColors = Theme.of(context).extension<AppColors>()!;
-
     return WillPopScope(
       onWillPop: () async => !(await _tabNavKeys[_tabController.index].currentState?.maybePop() ?? false),
       child: CupertinoTabScaffold(
@@ -74,6 +72,8 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
           ],
         ),
         tabBuilder: (BuildContext context, int index) {
+          final appColors = Theme.of(context).extension<AppColors>()!;
+
           return CupertinoTabView(
             navigatorKey: _tabNavKeys[index],
             builder: (BuildContext context) {
