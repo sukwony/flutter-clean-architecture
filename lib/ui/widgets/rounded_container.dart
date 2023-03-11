@@ -16,9 +16,8 @@ class RoundedContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final borderRadius = BorderRadius.circular(radius);
     final child = ClipRRect(
-      borderRadius: borderRadius,
+      borderRadius: BorderRadius.circular(radius),
       child: this.child
     );
     return borderWidth > 0 ? Container(
@@ -27,7 +26,7 @@ class RoundedContainer extends StatelessWidget {
           width: borderWidth,
           color: borderColor
         ),
-        borderRadius: borderRadius
+        borderRadius: BorderRadius.circular(radius + borderWidth)
       ),
       child: child
     ) : child;
