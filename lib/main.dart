@@ -108,7 +108,7 @@ Widget buildStartScreen(BuildContext context, int index) =>
     screenName: 'Home',
     child: TextButton(
       child: const Text('Press me'),
-      onPressed: () => navigate(context, 'users/2'),
+      onPressed: () => navigate(context, 'tags/2'),
     )
   ) : TestScreen(
     screenName: 'Explore root',
