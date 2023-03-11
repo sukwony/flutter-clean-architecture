@@ -81,7 +81,7 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
                 backgroundColor: appColors.backgroundBlack,
                 child: DefaultTextStyle(
                   style: const TextStyle(),
-                  child: buildStartScreen(context, index)
+                  child: buildStartScreen(context, index),
                 ),
               );
             },
