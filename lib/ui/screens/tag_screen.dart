@@ -13,7 +13,7 @@ class TagScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appColors = Theme.of(context).extension<AppColors>()!;
-    final appTextStyles =Theme.of(context).extension<AppTextStyles>()!;
+    final appTextStyles = Theme.of(context).extension<AppTextStyles>()!;
     final tagScreenState = ref.watch(tagScreenStateProvider);
 
     return CustomScrollView(
