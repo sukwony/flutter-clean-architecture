@@ -93,13 +93,14 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
 }
 
 void navigate(BuildContext context, String path) {
-  final appColors = Theme.of(context).extension<AppColors>()!;
   final screen = Screen.fromPath(path);
   var arguments = screen.parsePath(path);
 
   Navigator.of(context).push(
     CupertinoPageRoute<void>(
       builder: (BuildContext context) {
+        final appColors = Theme.of(context).extension<AppColors>()!;
+
         return CupertinoPageScaffold(
           backgroundColor: appColors.backgroundBlack,
           child: ProviderScope(
