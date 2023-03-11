@@ -29,13 +29,9 @@ class TabScaffoldApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        fontFamily: 'Montserrat',
-        fontFamilyFallback: const ['NotoSansKR'],
         extensions: <ThemeExtension<dynamic>>[lightColors, textStyles]
       ),
       darkTheme: ThemeData(
-        fontFamily: 'Montserrat',
-        fontFamilyFallback: const ['NotoSansKR'],
         extensions: <ThemeExtension<dynamic>>[darkColors, textStyles]
       ),
       home: const TabScaffoldExample(),
@@ -59,6 +55,8 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).extension<AppColors>()!;
+
     return WillPopScope(
       onWillPop: () async => !(await _tabNavKeys[_tabController.index].currentState?.maybePop() ?? false),
       child: CupertinoTabScaffold(
@@ -80,7 +78,11 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
             navigatorKey: _tabNavKeys[index],
             builder: (BuildContext context) {
               return CupertinoPageScaffold(
-                child: buildStartScreen(context, index),
+                backgroundColor: appColors.backgroundBlack,
+                child: DefaultTextStyle(
+                  style: const TextStyle(),
+                  child: buildStartScreen(context, index)
+                ),
               );
             },
           );
@@ -91,6 +93,7 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
 }
 
 void navigate(BuildContext context, String path) {
+  final appColors = Theme.of(context).extension<AppColors>()!;
   final screen = Screen.fromPath(path);
   var arguments = screen.parsePath(path);
 
@@ -98,9 +101,13 @@ void navigate(BuildContext context, String path) {
     CupertinoPageRoute<void>(
       builder: (BuildContext context) {
         return CupertinoPageScaffold(
+          backgroundColor: appColors.backgroundBlack,
           child: ProviderScope(
             overrides: [screenKeyProvider],
-            child: buildScreen(context, screen, arguments)
+            child: DefaultTextStyle(
+              style: const TextStyle(),
+              child: buildScreen(context, screen, arguments)
+            )
           ),
         );
       }
