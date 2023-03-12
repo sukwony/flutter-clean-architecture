@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 
 import '../app_colors.dart';
-import 'rounded_container.dart';
+import 'app_rounded.dart';
 
 class HeaderButton extends StatelessWidget {
   final String assetName;
@@ -15,7 +14,7 @@ class HeaderButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColors>()!;
 
-    return RoundedContainer(
+    return AppRounded(
       radius: 14,
       child: Container(
         color: colors.backgroundLightGreyOnWhite,

@@ -5,7 +5,7 @@ import '../app_colors.dart';
 import '../app_text_styles.dart';
 import '../widgets/header_button.dart';
 import '../widgets/item_tile.dart';
-import '../widgets/rounded_container.dart';
+import '../widgets/app_rounded.dart';
 import 'tag_screen_view_model.dart';
 
 class TagScreen extends ConsumerWidget {
@@ -35,7 +35,7 @@ class TagScreen extends ConsumerWidget {
                       const SizedBox(height: 8),
                       Row(
                         children: [
-                          RoundedContainer(
+                          AppRounded(
                             radius: 12,
                             child: Image.network(
                               'https://picsum.photos/208',
