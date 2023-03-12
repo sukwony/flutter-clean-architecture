@@ -10,11 +10,9 @@ import 'tag_screen_view_model.dart';
 class TagScreen extends ConsumerWidget {
   const TagScreen({ super.key });
 
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget _render(BuildContext context, TagScreenState state) {
     final colors = Theme.of(context).extension<AppColors>()!;
     final textStyles = Theme.of(context).extension<AppTextStyles>()!;
-    final tagScreenState = ref.watch(tagScreenStateProvider);
 
     return CustomScrollView(
       slivers: [
@@ -52,21 +50,33 @@ class TagScreen extends ConsumerWidget {
             ),
           ), childCount: 1)
         ),
-        SliverGrid(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-          delegate: SliverChildBuilderDelegate((context, index) => Center(
-            child: tagScreenState.when(
-              data: (state) => SizedBox(
-                child: ItemTile(
-                  imageUrl: state.items[0].imageUrl
-                ),
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          sliver: SliverGrid(
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 159,
+              crossAxisSpacing: 12,
+              mainAxisSpacing: 25,
+            ),
+            delegate: SliverChildBuilderDelegate((context, index) => SizedBox(
+              child: ItemTile(
+                imageUrl: state.items[index].imageUrl
               ),
-              loading: () => const CircularProgressIndicator(),
-              error: (err, stack) => Text('Error: $err')
-            )
-          ), childCount: 20)
+            ), childCount: state.items.length)
+          ),
         )
       ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final tagScreenState = ref.watch(tagScreenStateProvider);
+
+    return tagScreenState.when(
+      data: (state) => _render(context, state),
+      loading: () => const CircularProgressIndicator(),
+      error: (err, stack) => Text('Error: $err')
     );
   }
 }

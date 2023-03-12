@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
-import 'store.dart';
+import 'brand.dart';
 
 part 'item.freezed.dart';
 
@@ -12,6 +12,6 @@ class Item with _$Item {
     @Default('') String imageUrl,
     @Default(.0) double price,
     @Default(.0) double orgPrice,
-    Store? store,
+    Brand? brand,
   }) = _Item;
 }
