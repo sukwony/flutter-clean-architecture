@@ -75,10 +75,7 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
           return CupertinoTabView(
             navigatorKey: _tabNavKeys[index],
             builder: (BuildContext context) {
-              final colors = Theme.of(context).extension<AppColors>()!;
-
               return CupertinoPageScaffold(
-                backgroundColor: colors.backgroundBlack,
                 child: DefaultTextStyle(
                   style: const TextStyle(
                     fontFamily: 'Montserrat',
@@ -102,10 +99,7 @@ void navigate(BuildContext context, String path) {
   Navigator.of(context).push(
     CupertinoPageRoute<void>(
       builder: (BuildContext context) {
-        final colors = Theme.of(context).extension<AppColors>()!;
-
         return CupertinoPageScaffold(
-          backgroundColor: colors.backgroundBlack,
           child: ProviderScope(
             overrides: [screenKeyProvider],
             child: DefaultTextStyle(
