@@ -68,6 +68,12 @@ class TagScreen extends ConsumerWidget {
                           Text(
                             '95개의 위시템',
                             style: textStyles.s12Bold.copyWith(color: colors.textGreyOnWhite),
+                          ),
+                          const Spacer(),
+                          ImageIcon(
+                            const AssetImage('icons/filter.png'),
+                            color: colors.iconGreyOnLightGrey,
+                            size: 14
                           )
                         ],
                       ),
