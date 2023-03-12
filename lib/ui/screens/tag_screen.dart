@@ -54,14 +54,12 @@ class TagScreen extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           sliver: SliverGrid(
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 159,
+              maxCrossAxisExtent: 159,
               crossAxisSpacing: 12,
               mainAxisSpacing: 25,
             ),
-            delegate: SliverChildBuilderDelegate((context, index) => SizedBox(
-              child: ItemTile(
-                imageUrl: state.items[index].imageUrl
-              ),
+            delegate: SliverChildBuilderDelegate((context, index) => ItemTile(
+              imageUrl: state.items[index].imageUrl
             ), childCount: state.items.length)
           ),
         )
