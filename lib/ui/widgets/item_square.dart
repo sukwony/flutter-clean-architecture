@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../app_colors.dart';
-import 'rounded_container.dart';
+import 'app_rounded.dart';
 
 class ItemSquare extends StatelessWidget {
   final String imageUrl;
@@ -15,7 +15,7 @@ class ItemSquare extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColors>()!;
 
-    return RoundedContainer(
+    return AppRounded(
       radius: 20,
       borderWidth: 1,
       borderColor: colors.backgroundLightGreyOnWhite,

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class RoundedContainer extends StatelessWidget {
+class AppRounded extends StatelessWidget {
   final double radius;
   final double borderWidth;
   final Color borderColor;
   final Widget child;
 
-  const RoundedContainer({
+  const AppRounded({
     super.key,
     this.radius = .0,
     this.borderWidth = .0,
