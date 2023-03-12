@@ -18,6 +18,7 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color textGreyOnWhite;
   final Color textBlackOnWhite;
   final Color backgroundLightGreyOnWhite;
+  final Color iconGreyOnLightGrey;
 
   AppColors({
     required this.backgroundWhite,
@@ -26,6 +27,7 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.textGreyOnWhite,
     required this.textBlackOnWhite,
     required this.backgroundLightGreyOnWhite,
+    required this.iconGreyOnLightGrey,
   });
 
 
@@ -36,7 +38,8 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? textWhite,
     Color? textGreyOnWhite,
     Color? textBlackOnWhite,
-    Color? backgroundLightGreyOnWhite
+    Color? backgroundLightGreyOnWhite,
+    Color? iconGreyOnLightGrey,
   }) {
     return AppColors(
       backgroundWhite: backgroundWhite ?? this.backgroundWhite,
@@ -44,7 +47,8 @@ class AppColors extends ThemeExtension<AppColors> {
       textWhite: textWhite ?? this.textWhite,
       textGreyOnWhite: textGreyOnWhite ?? this.textGreyOnWhite,
       textBlackOnWhite: textBlackOnWhite ?? this.textBlackOnWhite,
-      backgroundLightGreyOnWhite: backgroundLightGreyOnWhite ?? this.backgroundLightGreyOnWhite
+      backgroundLightGreyOnWhite: backgroundLightGreyOnWhite ?? this.backgroundLightGreyOnWhite,
+      iconGreyOnLightGrey: iconGreyOnLightGrey ?? this.iconGreyOnLightGrey,
     );
   }
 
@@ -60,6 +64,7 @@ class AppColors extends ThemeExtension<AppColors> {
       textGreyOnWhite: Color.lerp(textGreyOnWhite, other.textGreyOnWhite, t) ?? textGreyOnWhite,
       textBlackOnWhite: Color.lerp(textBlackOnWhite, other.textBlackOnWhite, t) ?? textBlackOnWhite,
       backgroundLightGreyOnWhite: Color.lerp(backgroundLightGreyOnWhite, other.backgroundLightGreyOnWhite, t) ?? backgroundLightGreyOnWhite,
+      iconGreyOnLightGrey: Color.lerp(iconGreyOnLightGrey, other.iconGreyOnLightGrey, t) ?? iconGreyOnLightGrey,
     );
   }
 }
@@ -71,6 +76,7 @@ final lightColors = AppColors(
   textGreyOnWhite: _grey,
   textBlackOnWhite: _black,
   backgroundLightGreyOnWhite: _lightGrey,
+  iconGreyOnLightGrey: _grey,
 );
 final darkColors = AppColors(
   backgroundWhite: _greyTwo,
@@ -79,4 +85,5 @@ final darkColors = AppColors(
   textGreyOnWhite: _lightGreyTwo,
   textBlackOnWhite: Colors.white,
   backgroundLightGreyOnWhite: _grey,
+  iconGreyOnLightGrey: _lightGrey
 );
