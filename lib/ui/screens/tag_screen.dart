@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../app_colors.dart';
 import '../app_text_styles.dart';
-import '../widgets/item_square.dart';
+import '../widgets/header_button.dart';
 import '../widgets/item_tile.dart';
 import '../widgets/rounded_container.dart';
 import 'tag_screen_view_model.dart';
@@ -62,7 +62,7 @@ class TagScreen extends ConsumerWidget {
                   child: Container(
                     color: colors.backgroundWhite,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
+                      padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 24),
                       child: Row(
                         children: [
                           Text(
@@ -70,11 +70,7 @@ class TagScreen extends ConsumerWidget {
                             style: textStyles.s12Bold.copyWith(color: colors.textGreyOnWhite),
                           ),
                           const Spacer(),
-                          ImageIcon(
-                            const AssetImage('icons/filter.png'),
-                            color: colors.iconGreyOnLightGrey,
-                            size: 14
-                          )
+                          const HeaderButton('icons/filter.png')
                         ],
                       ),
                     ),
