@@ -85,7 +85,7 @@ class TagScreen extends ConsumerWidget {
               maxCrossAxisExtent: 159,
               crossAxisSpacing: 12,
               mainAxisSpacing: 25,
-            childAspectRatio: 106.0 / 150
+              childAspectRatio: 106.0 / 150
             ),
             delegate: SliverChildBuilderDelegate((context, index) => ItemTile(
               item: state.items[index]
