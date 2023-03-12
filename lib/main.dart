@@ -29,13 +29,9 @@ class TabScaffoldApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        fontFamily: 'Montserrat',
-        fontFamilyFallback: const ['NotoSansKR'],
         extensions: <ThemeExtension<dynamic>>[lightColors, textStyles]
       ),
       darkTheme: ThemeData(
-        fontFamily: 'Montserrat',
-        fontFamilyFallback: const ['NotoSansKR'],
         extensions: <ThemeExtension<dynamic>>[darkColors, textStyles]
       ),
       home: const TabScaffoldExample(),
@@ -79,8 +75,17 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
           return CupertinoTabView(
             navigatorKey: _tabNavKeys[index],
             builder: (BuildContext context) {
+              final appColors = Theme.of(context).extension<AppColors>()!;
+
               return CupertinoPageScaffold(
-                child: buildStartScreen(context, index),
+                backgroundColor: appColors.backgroundBlack,
+                child: DefaultTextStyle(
+                  style: const TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontFamilyFallback: ['NotoSansKR']
+                  ),
+                  child: buildStartScreen(context, index),
+                ),
               );
             },
           );
@@ -97,10 +102,19 @@ void navigate(BuildContext context, String path) {
   Navigator.of(context).push(
     CupertinoPageRoute<void>(
       builder: (BuildContext context) {
+        final appColors = Theme.of(context).extension<AppColors>()!;
+
         return CupertinoPageScaffold(
+          backgroundColor: appColors.backgroundBlack,
           child: ProviderScope(
             overrides: [screenKeyProvider],
-            child: buildScreen(context, screen, arguments)
+            child: DefaultTextStyle(
+              style: const TextStyle(
+                fontFamily: 'Montserrat',
+                fontFamilyFallback: ['NotoSansKR']
+              ),
+              child: buildScreen(context, screen, arguments)
+            )
           ),
         );
       }
