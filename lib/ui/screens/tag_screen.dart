@@ -42,7 +42,7 @@ class TagScreen extends ConsumerWidget {
                     ),
                     const SizedBox(width: 8),
                     Text(
-                      'by 하두세네다여일여아열하두',
+                      'by 17,300 하두세네다여일여아열하두',
                       style: appTextStyles.s12Medium.copyWith(color: appColors.textWhite)
                     )
                   ],

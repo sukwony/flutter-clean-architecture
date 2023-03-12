@@ -32,9 +32,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
   }
 }
 
-const _base = TextStyle(fontFamily: 'Montserrat', fontFamilyFallback: ['NotoSansKR']);
-
 final textStyles = AppTextStyles(
-  s24BoldYdestreet: _base.copyWith(fontSize: 24, fontWeight: FontWeight.bold, fontFamily: 'Ydestreet'),
-  s12Medium: _base.copyWith(fontSize: 12, fontWeight: FontWeight.w500)
+  s24BoldYdestreet: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, fontFamily: 'Ydestreet'),
+  s12Medium: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500)
 );

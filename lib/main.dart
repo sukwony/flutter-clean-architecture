@@ -80,7 +80,10 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
               return CupertinoPageScaffold(
                 backgroundColor: appColors.backgroundBlack,
                 child: DefaultTextStyle(
-                  style: const TextStyle(),
+                  style: const TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontFamilyFallback: ['NotoSansKR']
+                  ),
                   child: buildStartScreen(context, index),
                 ),
               );
@@ -106,7 +109,10 @@ void navigate(BuildContext context, String path) {
           child: ProviderScope(
             overrides: [screenKeyProvider],
             child: DefaultTextStyle(
-              style: const TextStyle(),
+              style: const TextStyle(
+                fontFamily: 'Montserrat',
+                fontFamilyFallback: ['NotoSansKR']
+              ),
               child: buildScreen(context, screen, arguments)
             )
           ),
