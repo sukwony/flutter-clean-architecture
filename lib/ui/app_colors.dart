@@ -15,6 +15,7 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color backgroundWhite;
   final Color backgroundBlack;
   final Color textWhite;
+  final Color textGreyOnWhite;
   final Color textBlackOnWhite;
   final Color backgroundLightGreyOnWhite;
 
@@ -22,6 +23,7 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.backgroundWhite,
     required this.backgroundBlack,
     required this.textWhite,
+    required this.textGreyOnWhite,
     required this.textBlackOnWhite,
     required this.backgroundLightGreyOnWhite,
   });
@@ -32,6 +34,7 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? backgroundWhite,
     Color? backgroundBlack,
     Color? textWhite,
+    Color? textGreyOnWhite,
     Color? textBlackOnWhite,
     Color? backgroundLightGreyOnWhite
   }) {
@@ -39,6 +42,7 @@ class AppColors extends ThemeExtension<AppColors> {
       backgroundWhite: backgroundWhite ?? this.backgroundWhite,
       backgroundBlack: backgroundBlack ?? this.backgroundBlack,
       textWhite: textWhite ?? this.textWhite,
+      textGreyOnWhite: textGreyOnWhite ?? this.textGreyOnWhite,
       textBlackOnWhite: textBlackOnWhite ?? this.textBlackOnWhite,
       backgroundLightGreyOnWhite: backgroundLightGreyOnWhite ?? this.backgroundLightGreyOnWhite
     );
@@ -53,6 +57,7 @@ class AppColors extends ThemeExtension<AppColors> {
       backgroundWhite: Color.lerp(backgroundWhite, other.backgroundWhite, t) ?? backgroundWhite,
       backgroundBlack: Color.lerp(backgroundBlack, other.backgroundBlack, t) ?? backgroundBlack,
       textWhite: Color.lerp(textWhite, other.textWhite, t) ?? textWhite,
+      textGreyOnWhite: Color.lerp(textGreyOnWhite, other.textGreyOnWhite, t) ?? textGreyOnWhite,
       textBlackOnWhite: Color.lerp(textBlackOnWhite, other.textBlackOnWhite, t) ?? textBlackOnWhite,
       backgroundLightGreyOnWhite: Color.lerp(backgroundLightGreyOnWhite, other.backgroundLightGreyOnWhite, t) ?? backgroundLightGreyOnWhite,
     );
@@ -60,16 +65,18 @@ class AppColors extends ThemeExtension<AppColors> {
 }
 
 final lightColors = AppColors(
-    backgroundWhite: Colors.white,
-    backgroundBlack: _black,
-    textWhite: Colors.white,
-    textBlackOnWhite: _black,
-    backgroundLightGreyOnWhite: _lightGrey,
+  backgroundWhite: Colors.white,
+  backgroundBlack: _black,
+  textWhite: Colors.white,
+  textGreyOnWhite: _grey,
+  textBlackOnWhite: _black,
+  backgroundLightGreyOnWhite: _lightGrey,
 );
 final darkColors = AppColors(
   backgroundWhite: _greyTwo,
   backgroundBlack: _black,
   textWhite: Colors.white,
+  textGreyOnWhite: _lightGreyTwo,
   textBlackOnWhite: Colors.white,
   backgroundLightGreyOnWhite: _grey,
 );
