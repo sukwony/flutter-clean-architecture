@@ -12,8 +12,8 @@ class TagScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final appColors = Theme.of(context).extension<AppColors>()!;
-    final appTextStyles = Theme.of(context).extension<AppTextStyles>()!;
+    final colors = Theme.of(context).extension<AppColors>()!;
+    final textStyles = Theme.of(context).extension<AppTextStyles>()!;
     final tagScreenState = ref.watch(tagScreenStateProvider);
 
     return CustomScrollView(
@@ -27,7 +27,7 @@ class TagScreen extends ConsumerWidget {
                 const SizedBox(height: 44),
                 Text(
                   '사고싶은 신발들',
-                  style: appTextStyles.s24BoldYdestreet.copyWith(color: appColors.textWhite)
+                  style: textStyles.s24BoldYdestreet.copyWith(color: colors.textWhite)
                 ),
                 const SizedBox(height: 8),
                 Row(
@@ -43,7 +43,7 @@ class TagScreen extends ConsumerWidget {
                     const SizedBox(width: 8),
                     Text(
                       'by 17,300 하두세네다여일여아열하두',
-                      style: appTextStyles.s12Medium.copyWith(color: appColors.textWhite)
+                      style: textStyles.s12Medium.copyWith(color: colors.textWhite)
                     )
                   ],
                 ),
