@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../app_colors.dart';
 import '../app_text_styles.dart';
-import '../widgets/item_tile.dart';
+import '../widgets/item_square.dart';
 import '../widgets/rounded_container.dart';
 import 'tag_screen_view_model.dart';
 
@@ -85,7 +85,7 @@ class TagScreen extends ConsumerWidget {
               crossAxisSpacing: 12,
               mainAxisSpacing: 25,
             ),
-            delegate: SliverChildBuilderDelegate((context, index) => ItemTile(
+            delegate: SliverChildBuilderDelegate((context, index) => ItemSquare(
               imageUrl: state.items[index].imageUrl
             ), childCount: state.items.length)
           ),

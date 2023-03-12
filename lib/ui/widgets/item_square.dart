@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../app_colors.dart';
 import 'rounded_container.dart';
 
-class ItemTile extends StatelessWidget {
+class ItemSquare extends StatelessWidget {
   final String imageUrl;
 
-  const ItemTile({
+  const ItemSquare({
     super.key,
     required this.imageUrl
   });
