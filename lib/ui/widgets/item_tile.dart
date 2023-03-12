@@ -13,12 +13,12 @@ class ItemTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appColors = Theme.of(context).extension<AppColors>()!;
+    final colors = Theme.of(context).extension<AppColors>()!;
 
     return RoundedContainer(
       radius: 20,
       borderWidth: 1,
-      borderColor: appColors.backgroundLightGreyOnWhite,
+      borderColor: colors.backgroundLightGreyOnWhite,
       child: AspectRatio(
         aspectRatio: 1,
         child: Image.network(imageUrl, 

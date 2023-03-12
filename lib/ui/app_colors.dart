@@ -19,11 +19,11 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color backgroundLightGreyOnWhite;
 
   AppColors({
-    this.backgroundWhite = Colors.white,
-    this.backgroundBlack = _black,
-    this.textWhite = Colors.white,
-    this.textBlackOnWhite = _black,
-    this.backgroundLightGreyOnWhite = _lightGrey,
+    required this.backgroundWhite,
+    required this.backgroundBlack,
+    required this.textWhite,
+    required this.textBlackOnWhite,
+    required this.backgroundLightGreyOnWhite,
   });
 
 
@@ -59,7 +59,13 @@ class AppColors extends ThemeExtension<AppColors> {
   }
 }
 
-final lightColors = AppColors();
+final lightColors = AppColors(
+    backgroundWhite: Colors.white,
+    backgroundBlack: _black,
+    textWhite: Colors.white,
+    textBlackOnWhite: _black,
+    backgroundLightGreyOnWhite: _lightGrey,
+);
 final darkColors = AppColors(
   backgroundWhite: _greyTwo,
   backgroundBlack: _black,

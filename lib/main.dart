@@ -75,10 +75,10 @@ class _TabScaffoldExampleState extends State<TabScaffoldExample> {
           return CupertinoTabView(
             navigatorKey: _tabNavKeys[index],
             builder: (BuildContext context) {
-              final appColors = Theme.of(context).extension<AppColors>()!;
+              final colors = Theme.of(context).extension<AppColors>()!;
 
               return CupertinoPageScaffold(
-                backgroundColor: appColors.backgroundBlack,
+                backgroundColor: colors.backgroundBlack,
                 child: DefaultTextStyle(
                   style: const TextStyle(
                     fontFamily: 'Montserrat',
@@ -102,10 +102,10 @@ void navigate(BuildContext context, String path) {
   Navigator.of(context).push(
     CupertinoPageRoute<void>(
       builder: (BuildContext context) {
-        final appColors = Theme.of(context).extension<AppColors>()!;
+        final colors = Theme.of(context).extension<AppColors>()!;
 
         return CupertinoPageScaffold(
-          backgroundColor: appColors.backgroundBlack,
+          backgroundColor: colors.backgroundBlack,
           child: ProviderScope(
             overrides: [screenKeyProvider],
             child: DefaultTextStyle(
@@ -171,7 +171,7 @@ class TestScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final appColors = Theme.of(context).extension<AppColors>()!;
+    final colors = Theme.of(context).extension<AppColors>()!;
 
     return Center(
       child: Column(
@@ -181,7 +181,7 @@ class TestScreen extends ConsumerWidget {
           Text(
             screenName,
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              color: appColors.textBlackOnWhite
+              color: colors.textBlackOnWhite
             )
           ),
           child
